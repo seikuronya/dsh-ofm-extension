@@ -1,0 +1,73 @@
+{
+  "name": "dsh-ofm-extension",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "模型测活矩阵 — 测试模型选项中所有可用模型，标注可用/不可用并在尾部对齐。四色：绿=可用·免费，黄=可用·计费，灰=不可用·积分/费用不足，红=不可用·无法连接。免费/额度判定优先复用 Our Free Model 插件的实测结果。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "src",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-ofm-extension",
+    "model",
+    "probe",
+    "availability",
+    "free-model"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "external": [
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    },
+    "manifestVersion": 1,
+    "compatibility": {
+      "dshReleases": {
+        "0.2.1-rc.5": "compatible"
+      }
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5",
+    "@deepseek-ai/dsh-client-ui-primitives": ">=0.1.0",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-client-ui-primitives": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seikuronya/dsh-ofm-extension.git"
+  },
+  "homepage": "https://github.com/seikuronya/dsh-ofm-extension#readme",
+  "bugs": {
+    "url": "https://github.com/seikuronya/dsh-ofm-extension/issues"
+  }
+}
